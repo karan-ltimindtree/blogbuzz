@@ -1,0 +1,39 @@
+.titleTextInput {
+  border: none;
+  outline: none;
+  padding-top: rem(50px);
+  padding-bottom: rem(50px);
+  font-size: rem(64px);
+  background-color: transparent;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    font-size: rem(52px);
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(44px);
+  }
+}
+
+.selectInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.selectLabel {
+  font-size: rem(28px);
+}
+
+.selectWrapper {
+  width: fit-content;
+}
+
+.selectRoot {
+  padding: rem(20px);
+}
+
+.publishButton {
+  background-color: var(--mantine-color-teal-light);
+  color: var(--mantine-color-teal-light-color);
+}
