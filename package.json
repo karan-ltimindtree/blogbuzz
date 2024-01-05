@@ -19,10 +19,19 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.3.2",
     "@mantine/core": "7.3.2",
+    "@mantine/form": "^7.3.2",
     "@mantine/hooks": "7.3.2",
+    "@mantine/notifications": "^7.3.2",
+    "@reduxjs/toolkit": "^2.0.1",
+    "@tabler/icons-react": "^2.44.0",
+    "@types/axios": "^0.14.0",
+    "axios": "^1.6.3",
+    "embla-carousel-react": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.0"
   },
   "devDependencies": {
