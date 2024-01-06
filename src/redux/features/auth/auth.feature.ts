@@ -12,6 +12,7 @@ export interface AuthState {
     id: string;
   } | null;
   status: 'idle' | 'loading' | 'failed';
+  initals: string;
 }
 
 const initialState: AuthState = {
@@ -19,6 +20,7 @@ const initialState: AuthState = {
   accessToken: '',
   user: null,
   status: 'idle',
+  initals: 'N/A',
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -175,6 +177,12 @@ export const authSlice = createSlice({
       .addCase(getUserDetails.fulfilled, (state, action) => {
         state.status = 'idle';
         state.user = action.payload;
+        const name = action.payload.name.split(' ');
+        if (name.length > 1) {
+          state.initals = `${name[0][0]}${name[1][0]}`.toUpperCase();
+        } else {
+          state.initals = `${name[0][0]}${name[0][1]}`.toUpperCase();
+        }
       })
       .addCase(getUserDetails.rejected, (state) => {
         state.status = 'failed';

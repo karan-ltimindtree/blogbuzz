@@ -6,6 +6,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import classes from './PostDetails.module.css';
 import { Post, getSinglePost } from '@/redux/features/posts/post.feature';
 import { PostDetailsPageProps } from './PostDetails.types';
+import { CommentsSection } from '@/sections/comments/Comments.section';
 
 export function PostDetailsPage() {
   const params = useParams();
@@ -62,6 +63,7 @@ export function PostDetailsPage() {
             </Text>
             <Badge size="lg">{post.category}</Badge>
             <Text>{post.content}</Text>
+            <CommentsSection post_id={post.id} />
           </Stack>
         ) : (
           <Text>Post not found</Text>
