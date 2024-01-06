@@ -138,6 +138,12 @@ export const authSlice = createSlice({
           state.loggedIn = true;
           state.accessToken = action.payload.accessToken;
           sessionStorage.setItem('accessToken', action.payload.accessToken);
+          const name = action.payload.data.name.split(' ');
+          if (name.length > 1) {
+            state.initals = `${name[0][0]}${name[1][0]}`.toUpperCase();
+          } else {
+            state.initals = `${name[0][0]}${name[0][1]}`.toUpperCase();
+          }
         }
       })
       .addCase(loginUser.rejected, (state, action) => {
