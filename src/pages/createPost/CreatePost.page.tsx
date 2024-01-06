@@ -79,7 +79,7 @@ export function CreatePostPage() {
             />
             <Divider />
             <Textarea
-              styles={{ input: { border: 'none', outline: 'none' } }}
+              classNames={{ input: classes.contentTextarea }}
               maxRows={15}
               autosize
               placeholder="Write your content..."

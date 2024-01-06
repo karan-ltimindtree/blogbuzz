@@ -15,6 +15,12 @@
   }
 }
 
+.contentTextarea {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
 .selectInput {
   border: none;
   outline: none;
