@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export const axiosAuthInstance = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: process.env.REACT_APP_BASE_URL_BE,
   withCredentials: true,
 });
 
 const axiosPrivateInstance = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: process.env.REACT_APP_BASE_URL_BE,
   withCredentials: true,
 });
 
