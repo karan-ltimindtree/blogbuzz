@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export const axiosAuthInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL_BE,
+  baseURL: import.meta.env.VITE_BASE_URL_BE,
   withCredentials: true,
 });
 
 const axiosPrivateInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL_BE,
+  baseURL: import.meta.env.VITE_BASE_URL_BE,
   withCredentials: true,
 });
 
@@ -16,7 +16,7 @@ axiosPrivateInstance.defaults.withCredentials = true;
 
 axiosPrivateInstance.interceptors.request.use(
   (config) => {
-    config.headers['Access-Control-Allow-Origin'] = 'http://localhost:5173';
+    // config.headers['Access-Control-Allow-Origin'] = 'http://localhost:5173';
     config.headers['Access-Control-Allow-Credentials'] = true;
     config.headers['Content-Type'] = 'application/json';
     config.headers['Access-Control-Allow-Headers'] =
