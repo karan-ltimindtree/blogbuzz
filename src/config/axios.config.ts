@@ -1,3 +1,5 @@
+import { refreshUser } from '@/redux/features/auth/auth.feature';
+import { store } from '@/redux/store';
 import axios from 'axios';
 
 export const axiosAuthInstance = axios.create({

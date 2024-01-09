@@ -1,4 +1,3 @@
-import { useRefreshToken } from '@/hooks/useRefreshToken';
 import { getUserDetails, logoutUser } from '@/redux/features/auth/auth.feature';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/redux.hooks';
 import { Avatar, Menu } from '@mantine/core';
