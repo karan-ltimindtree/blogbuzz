@@ -177,7 +177,7 @@ export function AuthPage(props: PaperProps) {
                     ? 'Already have an account? Login'
                     : "Don't have an account? Register"}
                 </Anchor>
-                <Button type="submit" radius="xl">
+                <Button type="submit" radius="xl" loading={authSelector.status === 'loading'}>
                   {upperFirst(type)}
                 </Button>
               </Group>
