@@ -28,6 +28,7 @@ import { IconSun, IconMoonStars, IconMoon } from '@tabler/icons-react';
 import { Link, useLocation } from 'react-router-dom';
 import { HeaderProps } from './Header.types';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/redux.hooks';
+import { logoutUser } from '@/redux/features/auth/auth.feature';
 
 const links = [
   { link: '/', label: 'Home' },
@@ -38,6 +39,7 @@ const links = [
 
 export function Header({ onPublishClick }: HeaderProps) {
   const location = useLocation();
+  const dispatch = useAppDispatch();
   const selector = useAppSelector((state) => state.post);
   const { colorScheme, setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
@@ -93,23 +95,53 @@ export function Header({ onPublishClick }: HeaderProps) {
         onClose={toggle}
         size="80%"
         padding="md"
-        title="Menus"
+        title={
+          <Title className={classes.headerTitle}>
+            <Text
+              inherit
+              variant="gradient"
+              component="span"
+              gradient={{ from: 'blue', to: colorScheme === 'dark' ? 'white' : 'black' }}
+            >
+              <Link to="/">BlogBuzz</Link>
+            </Text>
+          </Title>
+        }
         hiddenFrom="sm"
         zIndex={1000000}
+        styles={{ body: { paddingBottom: 0 } }}
       >
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
-          <a href="#" className={classes.link}>
+          <Link className={classes.link} to="/">
             Home
-          </a>
+          </Link>
 
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
-          </a>
+          <Link className={classes.link} to="/createPost">
+            Create Post
+          </Link>
+
+          <Divider my="sm" />
+          <Link className={classes.link} to="/myPosts">
+            My Posts
+          </Link>
+
+          <Text
+            className={classes.link}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+          >
+            {`${computedColorScheme === 'light' ? 'Dark' : 'Light'} Mode`}
+          </Text>
+
+          <Text
+            className={classes.link}
+            style={{ cursor: 'pointer' }}
+            onClick={() => dispatch(logoutUser())}
+          >
+            Logout
+          </Text>
 
           <Divider my="sm" />
         </ScrollArea>
